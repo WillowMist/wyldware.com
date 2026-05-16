@@ -15,7 +15,38 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$name    = trim($_POST['name'] ?? '');
+// ── Bot Protection ─────────────────────────────────────────────────────────────
+
+// 1. Honeypot field (should be empty)
+if (!empty($_POST['website'])) {
+    error_log("[WyldWare Contact] Bot detected: honeypot field filled");
+    http_response_code(400);
+    echo msgPage('Submission Rejected', 'Something didn\'t look right. If you\'re a human, please try again.', '/contact.html', '← Try again');
+    exit;
+}
+
+// 2. Math CAPTCHA
+$mathAnswer = intval($_POST['math_answer'] ?? 0);
+$mathResult = intval($_POST['math_result'] ?? 0);
+if ($mathAnswer !== $mathResult) {
+    error_log("[WyldWare Contact] Bot detected: math CAPTCHA failed (got $mathAnswer, expected $mathResult)");
+    http_response_code(400);
+    echo msgPage('Math Check Failed', 'The math answer didn\'t match. If you\'re a human, please try again.', '/contact.html', '← Try again');
+    exit;
+}
+
+// 3. Timestamp check (form submitted too fast = bot)
+$timestamp = intval($_POST['form_timestamp'] ?? 0);
+$now = time() * 1000; // Convert to milliseconds
+$timeDiff = ($now - $timestamp) / 1000; // Difference in seconds
+if ($timeDiff < 3) {
+    error_log("[WyldWare Contact] Bot detected: form submitted in {$timeDiff}s (too fast)");
+    http_response_code(400);
+    echo msgPage('Too Fast', 'That was submitted awfully quick. If you\'re a human, please try again.', '/contact.html', '← Try again');
+    exit;
+}
+
+// ── Normal Form Processing ──────────────────────────────────────────────────────
 $email   = trim($_POST['email'] ?? '');
 $message = trim($_POST['message'] ?? '');
 

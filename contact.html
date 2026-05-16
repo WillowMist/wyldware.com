@@ -43,6 +43,30 @@
         <h2 style="margin-bottom: 1.5rem;">Get in Touch</h2>
         <div class="contact-form">
           <form id="contact-form" name="contact" method="post" action="contact.php" novalidate>
+            <!-- Bot Protection: Honeypot (hidden field) -->
+            <div style="position:absolute;left:-9999px;" aria-hidden="true">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            
+            <!-- Bot Protection: Timestamp -->
+            <input type="hidden" id="form-timestamp" name="form_timestamp" value="">
+            <script>document.getElementById('form-timestamp').value = Date.now();</script>
+            
+            <!-- Bot Protection: Simple Math -->
+            <div class="form-group" id="math-captcha">
+              <label for="math-answer">Quick Math: <span id="math-question"></span> <span class="required">*</span></label>
+              <input type="text" id="math-answer" name="math_answer" required placeholder="?" style="max-width:120px;">
+              <input type="hidden" id="math-result" name="math_result" value="">
+              <script>
+                (function() {
+                  var a = Math.floor(Math.random() * 8) + 1;
+                  var b = Math.floor(Math.random() * 8) + 1;
+                  document.getElementById('math-question').textContent = a + ' + ' + b + ' =';
+                  document.getElementById('math-result').value = a + b;
+                })();
+              </script>
+            </div>
             <div class="form-group">
               <label for="name">Name <span class="required">*</span></label>
               <input type="text" id="name" name="name" required placeholder="Your name">
