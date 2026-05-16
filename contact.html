@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — WyldWare.Com</title>
+  <meta name="description" content="Get in touch with WyldWare.Com. Questions about hosting, custom setups, or anything MU* related — we're here to help.">
+  <link rel="icon" type="image/png" href="/media/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="site-nav">
+  <div class="container">
+    <a href="/" class="nav-brand"><img src="/media/logo.png" alt="WyldWare" style="height:40px;width:auto;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/about.html">About Us</a></li>
+      <li><a href="/contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="mobile-menu-btn" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<header class="page-header">
+  <div class="container">
+    <h1>Let's Talk About Your World</h1>
+    <p class="page-header__sub">Not sure which package fits? Have a weird setup? Just want to talk it through before you commit? We're here. Reach out — we'll get you sorted.</p>
+  </div>
+</header>
+
+<!-- Contact Form + Info -->
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Form -->
+      <div>
+        <div class="eyebrow" style="justify-content: flex-start;">Send a Message</div>
+        <h2 style="margin-bottom: 1.5rem;">Get in Touch</h2>
+        <div class="contact-form">
+          <form id="contact-form" name="contact" method="post" action="contact.php" novalidate>
+            <div class="form-group">
+              <label for="name">Name <span class="required">*</span></label>
+              <input type="text" id="name" name="name" required placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject <span class="required">*</span></label>
+              <select id="subject" name="subject" required>
+                <option value="">Choose a subject...</option>
+                <option value="hosting">Hosting Question</option>
+                <option value="setup">Game Setup / Installation</option>
+                <option value="custom">Custom Package</option>
+                <option value="billing">Billing Question</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message <span class="required">*</span></label>
+              <textarea id="message" name="message" required placeholder="Tell us about your game, your hosting needs, or whatever's on your mind..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary" style="width: 100%;">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div>
+        <div class="eyebrow" style="justify-content: flex-start; margin-top: 0.5rem;">Before You Write</div>
+        <h2 style="margin-bottom: 1.5rem;">Common Questions</h2>
+
+        <div class="contact-info__block">
+          <h3>How long does setup take?</h3>
+          <p>Most games are up and running within 24–48 hours of subscribing. Custom setups or unusual configurations may take a bit longer — we'll let you know upfront.</p>
+        </div>
+
+        <div class="contact-info__block">
+          <h3>Can I switch plans later?</h3>
+          <p>Absolutely. Start with what fits your game now and scale up (or down) as needed. Just reach out and we'll handle it.</p>
+        </div>
+
+        <div class="contact-info__block">
+          <h3>What if I need something not listed?</h3>
+          <p>That's what the custom package option is for. Tell us what you're running — we'll figure out a plan that works.</p>
+        </div>
+
+        <div class="contact-info__block">
+          <h3>Do you support Evennia?</h3>
+          <p>Yes — it's one of our standard game engine options. Just let us know that's what you're using when you sign up and we'll make sure it's configured correctly.</p>
+        </div>
+
+        <div class="contact-info__block">
+          <h3>Can I bring my own domain?</h3>
+          <p>Yes. Advanced and Deluxe plans include your own domain name (if available). We can also help with domain transfer and DNS setup.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="section section--dark text-center">
+  <div class="container container--narrow">
+    <div class="eyebrow" style="justify-content: center;">Hosting Packages</div>
+    <h2>Ready to Get Started?</h2>
+    <p style="color: var(--gray-light); max-width: 480px; margin: 1rem auto 0;">
+      Skip the back-and-forth if you already know what you need. Head straight to our hosting packages and subscribe — we'll get your world online.
+    </p>
+    <div style="margin-top: 2rem;">
+      <a href="/services.html" class="btn btn--primary btn--large">View Hosting Packages</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand__name">WyldWare.Com</div>
+        <p class="footer-brand__desc">One of the internet's oldest MU* hosting providers, serving MUD, MUX, MUSH, and MOO games since 1996.</p>
+      </div>
+        <div class="footer-col__heading">Company</div>
+        <ul>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
